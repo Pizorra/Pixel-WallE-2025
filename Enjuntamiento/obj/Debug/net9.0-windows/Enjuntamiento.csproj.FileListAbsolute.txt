@@ -1,0 +1,42 @@
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.exe
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.deps.json
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.runtimeconfig.json
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.dll
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.pdb
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.AssemblyInfoInputs.cache
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.AssemblyInfo.cs
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.csproj.CoreCompileInputs.cache
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.dll
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\refint\Enjuntamiento.dll
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.pdb
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.genruntimeconfig.cache
+C:\Users\pizar\OneDrive\Desktop\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\ref\Enjuntamiento.dll
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.exe
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.deps.json
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.runtimeconfig.json
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.dll
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.pdb
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.AssemblyInfoInputs.cache
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.AssemblyInfo.cs
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.csproj.CoreCompileInputs.cache
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.dll
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\refint\Enjuntamiento.dll
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.pdb
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.genruntimeconfig.cache
+C:\Users\karen\Documents\Prueba PixelWallE\Enjuntamiento\obj\Debug\net9.0-windows\ref\Enjuntamiento.dll
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.exe
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.deps.json
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.runtimeconfig.json
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.dll
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\bin\Debug\net9.0-windows\Enjuntamiento.pdb
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.AssemblyInfoInputs.cache
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.AssemblyInfo.cs
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.csproj.CoreCompileInputs.cache
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.dll
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\obj\Debug\net9.0-windows\refint\Enjuntamiento.dll
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.pdb
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\obj\Debug\net9.0-windows\Enjuntamiento.genruntimeconfig.cache
+C:\Users\pizar\OneDrive\Desktop\Enjuntamiento\obj\Debug\net9.0-windows\ref\Enjuntamiento.dll
