@@ -54,11 +54,16 @@ namespace PixelWallE
 
         // Número de celdas del grid (filas y columnas)
         private int gridResolution = 100;
+        private int spawnX = -1;
+        private int spawnY = -1;
+        private Image walleImage;
 
 
         public void ExecuteVisualSpawn(int x, int y)
         {
             // No necesita dibujo inmediato, solo actualiza posición
+            spawnX = x;
+            spawnY = y;
             canvasPanel.Invalidate();
         }
 
@@ -74,18 +79,15 @@ namespace PixelWallE
 
         private void DrawBrushPoint(int x, int y, System.Drawing.Color color, int size)
         {
-            // Calcular radio del pincel
             int r = size / 2;
-
-            // Dibujar un cuadrado de píxeles alrededor del punto central
             for (int i = x - r; i <= x + r; i++)
             {
                 for (int j = y - r; j <= y + r; j++)
                 {
-                    // Verificar límites del canvas
                     if (i >= 0 && i < canvasSize && j >= 0 && j < canvasSize)
                     {
-                        canvas[i, j] = color;
+                        // Cambiar: canvas[j, i] en lugar de canvas[i, j]
+                        canvas[j, i] = color;
                     }
                 }
             }
@@ -207,6 +209,15 @@ namespace PixelWallE
         {
             InitializeComponents();
             // Inicializar canvas
+            try
+            {
+                walleImage = Image.FromFile("walle.png"); // Asegúrate de tener el archivo en la carpeta de ejecución
+            }
+            catch
+            {
+                walleImage = null; // Manejar errores si la imagen no se carga
+            }
+
             canvasSize = gridResolution;
             canvas = new System.Drawing.Color[canvasSize, canvasSize];
             ClearCanvas();
@@ -423,6 +434,24 @@ namespace PixelWallE
             int offsetX = (canvasPanel.Width - gridWidth) / 2;
             int offsetY = (canvasPanel.Height - gridHeight) / 2;
 
+            int drawX = offsetX + spawnY * cellWidth;
+            int drawY = offsetY + spawnX * cellHeight;
+
+            // Calcular tamaño manteniendo relación de aspecto
+            float scale = Math.Min(
+                (float)cellWidth / walleImage.Width,
+                (float)cellHeight / walleImage.Height
+            );
+
+            int scaledWidth = (int)(walleImage.Width * scale);
+            int scaledHeight = (int)(walleImage.Height * scale);
+
+            // Centrar la imagen en la celda
+            int centeredX = drawX + (cellWidth - scaledWidth) / 2;
+            int centeredY = drawY + (cellHeight - scaledHeight) / 2;
+
+            e.Graphics.DrawImage(walleImage, centeredX, centeredY, scaledWidth, scaledHeight);
+
             // Dibujar píxeles centrados
             for (int x = 0; x < canvasSize; x++)
             {
@@ -433,8 +462,8 @@ namespace PixelWallE
                         using (SolidBrush brush = new SolidBrush(canvas[x, y]))
                         {
                             // Aplicar offset de centrado a las coordenadas
-                            int drawX = offsetX + y * cellWidth;
-                            int drawY = offsetY + x * cellHeight;
+                            drawX = offsetX + y * cellWidth;
+                            drawY = offsetY + x * cellHeight;
 
                             e.Graphics.FillRectangle(brush, drawX, drawY, cellWidth, cellHeight);
                         }
@@ -466,6 +495,8 @@ namespace PixelWallE
             try
             {
                 ClearCanvas();
+                spawnX = -1; // Resetear posición de spawn
+                spawnY = -1;
                 string fullCode = codeEditor.Text + Environment.NewLine;
                 // Inicializar canvas
                 canvasSize = gridResolution;
@@ -503,6 +534,8 @@ namespace PixelWallE
         private void BtnUpdateGrid_Click(object sender, EventArgs e)
         {
             gridResolution = (int)numericGridSize.Value;
+            spawnX = -1; // Resetear posición de spawn
+            spawnY = -1;
             canvas = new System.Drawing.Color[gridResolution, gridResolution];
 
             // Inicializar a blanco
@@ -552,6 +585,11 @@ namespace PixelWallE
                     }
                 }
             }
+        }
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            base.OnFormClosed(e);
+            walleImage?.Dispose();
         }
     }
 }
