@@ -207,32 +207,42 @@ namespace PixelWallE
             CheckSpawnCalled(instruction);
             if (instruction.Arguments.Count != 3)
                 throw new RuntimeException("DrawCircle requires exactly 3 arguments",
-                                          instruction.Line, instruction.Position);
+                                            instruction.Line, instruction.Position);
 
             int dirX = EvaluateNumeric(instruction.Arguments[0]);
             int dirY = EvaluateNumeric(instruction.Arguments[1]);
             int radius = EvaluateNumeric(instruction.Arguments[2]);
 
-            if (Math.Abs(dirX) > 1 || Math.Abs(dirY) > 1 || (dirX == 0 && dirY == 0))
-                throw new RuntimeException("Invalid direction vector",
-                                          instruction.Line, instruction.Position);
+            // Permitir (0,0) para dibujar en la posición actual
+            if (Math.Abs(dirX) > 1 || Math.Abs(dirY) > 1) // Solo validar magnitud, no (0,0)
+                throw new RuntimeException("Direction components must be -1, 0, or 1",
+                                            instruction.Line, instruction.Position);
 
             if (radius <= 0)
                 throw new RuntimeException("Radius must be positive",
-                                          instruction.Line, instruction.Position);
+                                            instruction.Line, instruction.Position);
 
-            int centerX = posX + dirX * radius;
-            int centerY = posY + dirY * radius;
+            // Calcular centro (si es (0,0) se queda en la posición actual)
+            int centerX = (dirX == 0 && dirY == 0)
+                ? posX
+                : posX + dirX * radius;
+
+            int centerY = (dirX == 0 && dirY == 0)
+                ? posY
+                : posY + dirY * radius;
 
             if (centerX < 0 || centerX >= canvasSize || centerY < 0 || centerY >= canvasSize)
                 throw new RuntimeException("Circle center would be outside canvas bounds",
-                                          instruction.Line, instruction.Position);
+                                            instruction.Line, instruction.Position);
 
-            // Actual circle drawing logic would go here
             visualizer.ExecuteVisualDrawCircle(centerX, centerY, radius, currentColor, brushSize);
-            posX = centerX;
-            posY = centerY;
-            //Console.WriteLine($"Visual: Drawing circle at ({centerX},{centerY}) with radius {radius}, color {currentColor} and size {brushSize}");
+
+            // Actualizar posición solo si no es (0,0)
+            if (!(dirX == 0 && dirY == 0))
+            {
+                posX = centerX;
+                posY = centerY;
+            }
         }
 
         private void ExecuteDrawRectangle(InstructionNode instruction)
@@ -248,38 +258,42 @@ namespace PixelWallE
             int width = EvaluateNumeric(instruction.Arguments[3]);
             int height = EvaluateNumeric(instruction.Arguments[4]);
 
-            if (Math.Abs(dirX) > 1 || Math.Abs(dirY) > 1 || (dirX == 0 && dirY == 0))
-                throw new RuntimeException("Invalid direction vector",
+            // Permitir (0,0) como dirección válida
+            if (Math.Abs(dirX) > 1 || Math.Abs(dirY) > 1)
+                throw new RuntimeException("Direction components must be -1, 0, or 1",
                                           instruction.Line, instruction.Position);
 
-            if (distance <= 0 || width <= 0 || height <= 0)
-                throw new RuntimeException("Distance, width and height must be positive",
+            if (distance < 0 || width <= 0 || height <= 0)
+                throw new RuntimeException("Distance must be non-negative and width/height positive",
                                           instruction.Line, instruction.Position);
 
-            int startX = posX + dirX * distance;
-            int startY = posY + dirY * distance;
-            int endX = startX + width - 1;
-            int endY = startY + height - 1;
 
-            if (startX < 0 || startX >= canvasSize || startY < 0 || startY >= canvasSize ||
-                endX < 0 || endX >= canvasSize || endY < 0 || endY >= canvasSize)
+            int centerX = posX + dirX * distance;
+            int centerY = posY + dirY * distance;
+
+            // Calcular esquina superior izquierda (centrado)
+            int startX = centerX - width / 2;
+            int startY = centerY - height / 2;
+
+
+
+            if (startX < 0 || startY < 0 ||
+     (startX + width) >= canvasSize ||
+     (startY + height) >= canvasSize)
             {
                 throw new RuntimeException("Rectangle would go outside canvas bounds",
-                                          instruction.Line, instruction.Position);
+                                            instruction.Line, instruction.Position);
             }
 
-            // Actual rectangle drawing logic would go here
-            // Console.WriteLine($"Visual: Drawing rectangle at ({startX},{startY}) with width {width}, height {height}, color {currentColor} and size {brushSize}");
             visualizer.ExecuteVisualDrawRectangle(
-       startX, startY,
-       width, height,
-       currentColor,
-       brushSize
-   );
+                startX, startY,
+                width, height,
+                currentColor,
+                brushSize
+            );
 
-            // Actualizar posición: esquina superior izquierda del rectángulo
-            posX = startX;
-            posY = startY;
+            posX = centerX;
+            posY = centerY;
         }
 
         private void ExecuteFill(InstructionNode instruction)
