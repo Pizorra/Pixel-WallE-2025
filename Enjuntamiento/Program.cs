@@ -79,6 +79,9 @@ namespace PixelWallE
 
         private void DrawBrushPoint(int x, int y, System.Drawing.Color color, int size)
         {
+            if (color == System.Drawing.Color.Transparent)
+                return;
+
             int r = size / 2;
             for (int i = x - r; i <= x + r; i++)
             {
@@ -160,6 +163,8 @@ namespace PixelWallE
         public void ExecuteVisualFill(int x, int y, Color color)
         {
             System.Drawing.Color mycolor = MapColor(color);
+            if (mycolor == System.Drawing.Color.Transparent)
+                return;
             System.Drawing.Color targetColor = canvas[x, y];
             if (targetColor == mycolor) return;
 
@@ -229,7 +234,7 @@ namespace PixelWallE
             {
                 for (int j = 0; j < canvasSize; j++)
                 {
-                    canvas[i, j] = System.Drawing.Color.White;
+                    canvas[i, j] = System.Drawing.Color.Transparent;
                 }
             }
         }
